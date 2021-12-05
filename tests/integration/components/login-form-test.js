@@ -21,7 +21,6 @@ module('Integration | Component | login-form', function(hooks) {
         'Select a user',
         'Testy Testerson',
         'Sample McData',
-        'A validation message'
       ]
     );
   });
