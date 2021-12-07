@@ -11,9 +11,9 @@ module('Acceptance | logging out', function(hooks) {
   })
   test('visiting /teams and clicking logout', async function(assert) {
     this.owner.lookup('service:auth').currentUserId = '1';
-    await visit('/teams'); //go to the teams url
+    await visit('/teams/linkedin'); //go to the teams url
 
-    assert.equal(currentURL(), '/teams');
+    assert.ok(currentURL().startsWith('/teams'));
 
     await click('.team-sidebar__logout-button');
 
