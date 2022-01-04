@@ -10,17 +10,13 @@ In our app, we'll need an action in order to properly handle the Login `<form>`'
     // handling logic
   }
 </script>
-<form id="loginForm" onSubmit="myFunction()">
-  ...
-</form>
+<form id="loginForm" onSubmit="myFunction()">...</form>
 ```
 
 or, more accurately
 
 ```html
-<form id="loginForm">
-  ...
-</form>
+<form id="loginForm">...</form>
 ```
 
 ```js

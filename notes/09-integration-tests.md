@@ -17,10 +17,10 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-module('Integration | Component | login-form', function(hooks) {
+module('Integration | Component | login-form', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
+  test('it renders', async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
@@ -92,7 +92,7 @@ Go back to http://localhost:4200/tests?filter=login-form&nolint and you should s
 Create a new test immediately below the first one, and name it something like
 
 ```ts
-test('after selecting a user "Sign In" button enabled', async function(assert) {
+test('after selecting a user "Sign In" button enabled', async function (assert) {
   // ...
 });
 ```
@@ -104,8 +104,8 @@ define the test body as follows
 await render(hbs`<LoginForm />`);
 
 // Pluck off the DOM elements we care about
-let button = /** @type {HTMLInputElement} */ (find('input[type="submit"]'));
-let select = /** @type {HTMLSelectElement} */ (find('select'));
+let button = /** @type {HTMLInputElement} */ find('input[type="submit"]');
+let select = /** @type {HTMLSelectElement} */ find('select');
 
 // Select the <option> with value="1"
 await fillIn('select', '1');

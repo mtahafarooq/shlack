@@ -110,9 +110,9 @@ import { dateToString } from 'shlack/utils/date';
 import { module, test } from 'qunit';
 
 // A QUnit Module
-module('Unit | Utility | date', function() {
+module('Unit | Utility | date', function () {
   // A QUnit Test
-  test('string inputs', function(assert) {
+  test('string inputs', function (assert) {
     // A QUnit Assertion
     assert.equal(
       dateToString('04/05/1983'),
@@ -132,7 +132,7 @@ module('Unit | Utility | date', function() {
   });
 
   // A QUnit Test
-  test('empty and invalid inputs', function(assert) {
+  test('empty and invalid inputs', function (assert) {
     // @ts-ignore
     assert.equal(dateToString(), null);
     // @ts-ignore
@@ -179,7 +179,7 @@ export default helper(function formatTimestamp(params, hash) {
 Note the arguments `formatTimestamp` receives: `params` and `hash`. When a helper is used like this:
 
 ```hbs
-{{format-timestamp "a" "b" c="hello" e="world"}}
+{{format-timestamp 'a' 'b' c='hello' e='world'}}
 ```
 
 `format-timestamp` can be thought of as the function to invoke, and everything that follows it can be thought of as arguments passed to that function via `params` and `hash`.
@@ -194,7 +194,7 @@ Note the arguments `formatTimestamp` receives: `params` and `hash`. When a helpe
 in our case, we want to be able to write something like this
 
 ```hbs
-{{format-timestamp "05-01-2019"}}
+{{format-timestamp '05-01-2019'}}
 ```
 
 so we can expect the string `"05-01-2019"` to be passed to the helper as the 0th element of the `params` array. We can combine this with [destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Unpacking_fields_from_objects_passed_as_function_parameter), and end up with a helper implementation in [`app/helpers/format-timestamp.js`](../app/helpers/format-timestamp.js) like
@@ -229,8 +229,9 @@ Integration tests are all about testing the junctions between parts of a system.
 You can think of this as if `` hbs`{{format-timestamp "05-01-2019"}}` `` is transformed into
 
 ```hbs
-<div> <!-- 👈 this.element -->
-  {{format-timestamp "05-01-2019"}}
+<div>
+  <!-- 👈 this.element -->
+  {{format-timestamp '05-01-2019'}}
 </div>
 ```
 
@@ -242,11 +243,11 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-module('Integration | Helper | format-timestmp', function(hooks) {
+module('Integration | Helper | format-timestmp', function (hooks) {
   setupRenderingTest(hooks);
 
   // Replace this with your real tests.
-  test('it renders', async function(assert) {
+  test('it renders', async function (assert) {
     this.set('inputValue', '1234');
 
     await render(hbs`{{format-timestmp inputValue}}`);
@@ -277,7 +278,7 @@ You can view the current state of the tests by visiting <http://localhost:4200/t
 We can also add a negative test case below the first one (but still inside the callback passed to `module()`) to ensure the helper behaves reasonably when passed no arguments
 
 ```js
-test('No argument passed', async function(assert) {
+test('No argument passed', async function (assert) {
   await render(hbs`{{format-timestamp}}`);
   assert.equal(this.element.textContent.trim(), '(unknown)');
 });

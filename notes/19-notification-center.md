@@ -7,14 +7,24 @@ While components are generally reusable, sometimes it's more convenient to use _
 Let's begin with a `<Notification />` component. Create the file [`app/templates/components/notification.hbs`](../app/templates/components/notification.hbs) as follows
 
 ```hbs
-<div class="notification flex flex-row items-center bg-{{@notification.color}} text-white text-sm font-bold px-4 py-3 notification-transition {{if @notification.entering "entering" ""}} {{if @notification.leaving "leaving" ""}}"
-    role="alert">
+<div
+  class='notification flex flex-row items-center bg-{{@notification.color}}
+    text-white text-sm font-bold px-4 py-3 notification-transition
+    {{if @notification.entering "entering" ""}}
+    {{if @notification.leaving "leaving" ""}}'
+  role='alert'
+>
   {{#if hasBlock}}
-    {{yield }}
+    {{yield}}
   {{else}}
-    <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+    <svg
+      class='fill-current w-4 h-4 mr-2'
+      xmlns='http://www.w3.org/2000/svg'
+      viewBox='0 0 20 20'
+    >
       <path
-        d="M12.432 0c1.34 0 2.01.912 2.01 1.957 0 1.305-1.164 2.512-2.679 2.512-1.269 0-2.009-.75-1.974-1.99C9.789 1.436 10.67 0 12.432 0zM8.309 20c-1.058 0-1.833-.652-1.093-3.524l1.214-5.092c.211-.814.246-1.141 0-1.141-.317 0-1.689.562-2.502 1.117l-.528-.88c2.572-2.186 5.531-3.467 6.801-3.467 1.057 0 1.233 1.273.705 3.23l-1.391 5.352c-.246.945-.141 1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365 20 8.309 20z" />
+        d='M12.432 0c1.34 0 2.01.912 2.01 1.957 0 1.305-1.164 2.512-2.679 2.512-1.269 0-2.009-.75-1.974-1.99C9.789 1.436 10.67 0 12.432 0zM8.309 20c-1.058 0-1.833-.652-1.093-3.524l1.214-5.092c.211-.814.246-1.141 0-1.141-.317 0-1.689.562-2.502 1.117l-.528-.88c2.572-2.186 5.531-3.467 6.801-3.467 1.057 0 1.233 1.273.705 3.23l-1.391 5.352c-.246.945-.141 1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365 20 8.309 20z'
+      ></path>
     </svg>
     <p>{{@notification.body}}</p>
   {{/if}}
@@ -24,13 +34,13 @@ Let's begin with a `<Notification />` component. Create the file [`app/templates
 This component uses a pattern where we can have a default DOM structure for notifications, in the event we use the "inline form" of the component
 
 ```hbs
-<Notification @notification=... />
+<Notification @notification='...' />
 ```
 
 but can also customize it by using the "block form"
 
 ```hbs
-<Notification @notification=... >
+<Notification @notification='...'>
   Something custom
 </Notification>
 ```
@@ -74,7 +84,7 @@ export default class NotificationsService extends Service {
     // REMOVE after elapsed time is complete
     setTimeout(() => {
       // remove notification by ID
-      const idx = this.messages.map(n => `${n.id}`).indexOf(`${id}`);
+      const idx = this.messages.map((n) => `${n.id}`).indexOf(`${id}`);
       this.messages.splice(idx, 1);
 
       // tracked property update via assignment
@@ -105,11 +115,15 @@ export default class NotificationListComponent extends Component {
 and its HBS file [`app/templates/components/notification-list.hbs`](../app/templates/components/notification-list.hbs) as
 
 ```hbs
-<div class="notifications-container z-10">
+<div class='notifications-container z-10'>
   {{#each this.notifications.messages as |msg|}}
-    {{#if (eq msg.color "green-dark")}}
+    {{#if (eq msg.color 'green-dark')}}
       <Notification @notification={{msg}}>
-        <img src="https://media.giphy.com/media/toBi2rizjV8CswqIXG/giphy.gif" width="140" class="mr-20">
+        <img
+          src='https://media.giphy.com/media/toBi2rizjV8CswqIXG/giphy.gif'
+          width='140'
+          class='mr-20'
+        />
         {{msg.body}}
       </Notification>
     {{else}}

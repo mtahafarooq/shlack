@@ -11,10 +11,10 @@ The goal of this step is to break various parts of [`app/templates/application.h
 ```hbs
 <TeamSelector />
 <TeamSidebar />
-<main class="flex-1 flex flex-col bg-white overflow-hidden channel">
+<main class='flex-1 flex flex-col bg-white overflow-hidden channel'>
   <ChannelHeader />
 
-  <div class="py-4 flex-1 overflow-y-scroll channel-messages-list" role="list">
+  <div class='py-4 flex-1 overflow-y-scroll channel-messages-list' role='list'>
     <ChatMessage />
     <ChatMessage />
   </div>

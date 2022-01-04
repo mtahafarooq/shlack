@@ -6,19 +6,16 @@ const middlewares = jsonServer.defaults();
 // eslint-disable-next-line no-unused-vars
 const express = require('express');
 
-module.exports = server => {
+module.exports = (server) => {
   function SINGULAR_MIDDLEWARE(req, res, next) {
     const _send = res.send;
-    res.send = function(body) {
+    res.send = function (body) {
       if (url.parse(req.url, true).query['singular']) {
         try {
           const json = JSON.parse(body);
           if (Array.isArray(json)) {
             if (json.length === 1) {
-              return _send.call(
-                this,
-                JSON.stringify(json[0])
-              );
+              return _send.call(this, JSON.stringify(json[0]));
             } else if (json.length === 0) {
               return _send.call(this, '{}', 404);
             }

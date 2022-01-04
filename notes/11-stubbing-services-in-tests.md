@@ -39,7 +39,7 @@ import StubbedAuthService from 'shlack/tests/test-helpers/auth-service';
 Now we just need to "register" the service before each test, ensuring our test-appropriate one is used in place of the real one. Put this code in the test module, but before any tests.
 
 ```js
-hooks.beforeEach(function() {
+hooks.beforeEach(function () {
   this.owner.register('service:auth', StubbedAuthService);
 });
 ```

@@ -112,9 +112,7 @@ Paste the HTML below into [`app/templates/login.hbs`](../app/templates/login.hbs
             </svg>
           </div>
         </div>
-        <p class="text-blue text-xs italic my-4">
-          A validation message
-        </p>
+        <p class="text-blue text-xs italic my-4">A validation message</p>
         <div class="flex items-center justify-between">
           <input
             class="bg-grey text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"

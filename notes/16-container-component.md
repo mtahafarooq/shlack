@@ -46,12 +46,10 @@ export default class ChannelContainerComponent extends Component {
 Next, let's give ourselves a single DOM element "wrapper" around our container, and be sure to yield out the messages array so the "block" passed into our component can have access to them. In [`app/templates/components/channel-container.hbs`](../app/templates/components/channel-container.hbs), start with a template like
 
 ```hbs
-<main class="flex-1 flex flex-col bg-white overflow-hidden channel">
+<main class='flex-1 flex flex-col bg-white overflow-hidden channel'>
 
   {{! an object like  "foo.messages" }}
-  {{yield (hash
-    messages=this.messages
-  )}}
+  {{yield (hash messages=this.messages)}}
 
 </main>
 ```
@@ -166,7 +164,7 @@ import Pretender, { ResponseHandler } from 'pretender';
  * @returns {ResponseHandler}
  */
 function jsonResponse(body) {
-  return function() {
+  return function () {
     return [200, {}, JSON.stringify(body)];
   };
 }
@@ -197,22 +195,22 @@ function setupServer() {
   );
 }
 
-module('Integration | Component | channel-container', function(hooks) {
+module('Integration | Component | channel-container', function (hooks) {
   setupRenderingTest(hooks);
 
   /**
    * @type {Pretender | null}
    */
   let server;
-  hooks.beforeEach(function() {
+  hooks.beforeEach(function () {
     server = new Pretender(setupServer);
   });
-  hooks.afterEach(function() {
+  hooks.afterEach(function () {
     server && server.shutdown();
     server = null;
   });
 
-  test('it renders', async function(assert) {
+  test('it renders', async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 

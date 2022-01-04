@@ -40,8 +40,9 @@ Go to your [`app/templates/application.hbs`](../app/templates/application.hbs) a
 
 ```hbs
 <ChannelHeader
-    @title="compliments"
-    @description="Say nice things about your teammates" />
+  @title='compliments'
+  @description='Say nice things about your teammates'
+/>
 ```
 
 Now, you should see the title and description properly rendered in the channel header

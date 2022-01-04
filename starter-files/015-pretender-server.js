@@ -4,7 +4,7 @@
  * @returns {ResponseHandler}
  */
 function jsonResponse(body) {
-  return function() {
+  return function () {
     return [200, {}, JSON.stringify(body)];
   };
 }

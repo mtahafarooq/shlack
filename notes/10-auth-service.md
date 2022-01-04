@@ -15,10 +15,13 @@ We could use a component for this, but it would increase the complexity of our t
 <Auth as |authApi|>
   <TeamSelector @auth={{authApi}} />
   <TeamSidebar @auth={{authApi}} />
-  <main class="flex-1 flex flex-col bg-white overflow-hidden channel">
+  <main class='flex-1 flex flex-col bg-white overflow-hidden channel'>
     <ChannelHeader @auth={{authApi}} />
 
-    <div class="py-4 flex-1 overflow-y-scroll channel-messages-list" role="list">
+    <div
+      class='py-4 flex-1 overflow-y-scroll channel-messages-list'
+      role='list'
+    >
       <ChatMessage />
       <ChatMessage />
     </div>

@@ -42,7 +42,7 @@ Update the validation message in the component's template [`app/templates/compon
 And hook up `isDisabled` to the `input[type="submit"]`
 
 ```hbs
-  <input disabled={{this.isDisabled}} type="submit">
+<input disabled={{this.isDisabled}} type='submit' />
 ```
 
 We should also show some visual indication of whether this button is disabled. Replace the `"bg-grey"` class with a handlebars expression
