@@ -10,6 +10,7 @@ export default class AuthService extends Service {
    * @type {Router}
    */
   @service router;
+  @service session;
   get currentUserId() {
     return window.localStorage.getItem(AUTH_KEY);
   }
@@ -20,7 +21,6 @@ export default class AuthService extends Service {
   }
   @action
   logout() {
-    window.localStorage.removeItem(AUTH_KEY);
-    this.router.transitionTo('login');
+    this.session.invalidate();
   }
 }
