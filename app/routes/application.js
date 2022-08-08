@@ -5,10 +5,6 @@ export default class IndexRoute extends Route {
   @service session;
 
   async beforeModel() {
-    if (!this.session.isAuthenticated) {
-      this.transitionTo('login');
-    } else {
-      this.transitionTo('teams');
-    }
+    await this.session.setup();
   }
 }
